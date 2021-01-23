@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".HomeScreenActivity">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/sv">
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/profile_appbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white">
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/mToolbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="3dp">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/searchView"
+                        android:hint="Search Trips"
+                        android:paddingBottom="5dp"
+                        android:layout_marginRight="10dp"
+                        android:cursorVisible="false"
+                        android:paddingTop="10dp"
+                        android:layout_toRightOf="@+id/vMenu"
+                        android:background="@drawable/search_bg"
+                        android:drawableLeft="@drawable/ic_search"/>
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/vMenu"
+                        android:layout_marginTop="5dp"
+                        android:src="@drawable/ic_baseline_menu"
+
+                        android:layout_marginRight="20dp"/>
+
+                </RelativeLayout>
+
+            </androidx.appcompat.widget.Toolbar>
+        </com.google.android.material.appbar.AppBarLayout>
+        <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="5dp"
+        android:orientation="horizontal">
+
+
+
+    </LinearLayout>
+    </RelativeLayout>
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/swipeRefreshLayout"
+        android:layout_below="@+id/sv">
+    <androidx.core.widget.NestedScrollView
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/sv">
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/sv"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp">
+
+                <com.denzcoskun.imageslider.ImageSlider
+                    android:id="@+id/image_slider"
+                    android:layout_width="wrap_content"
+                    android:layout_height="150dp"
+                    app:iss_auto_cycle="true"
+                    app:iss_delay="0"
+                    app:iss_period="1000" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/upComingTitle"
+                    android:text="Upcoming Trips"
+                    android:layout_marginTop="5dp"
+                    android:layout_below="@+id/image_slider"
+                    android:textAlignment="viewStart"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginBottom="5dp"
+                    android:visibility="gone"
+                    android:textStyle="bold"/>
+
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/upComingRecycler"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:orientation="horizontal"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    android:layout_below="@+id/upComingTitle"
+                    android:nestedScrollingEnabled="false"/>
+
+                <!-- OnGoing Trips -->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/vOngoingTitle"
+                    android:text="OnGoing Trips"
+                    android:textAlignment="viewStart"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginBottom="5dp"
+                    android:textStyle="bold"
+                    android:visibility="gone"
+                    android:layout_below="@+id/upComingRecycler"/>
+
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/onGoingRecycler"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    android:layout_below="@+id/vOngoingTitle" />
+
+                <!--  Trips Near Me -->
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/vTripsNearMeTitle"
+                    android:text="Trips Near Me"
+                    android:textAlignment="viewStart"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginBottom="5dp"
+                    android:textStyle="bold"
+                    android:visibility="gone"
+                    android:layout_below="@+id/onGoingRecycler"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:id="@+id/notFoundText"
+                    android:layout_below="@id/vTripsNearMeTitle"
+                    android:text="There are no trips for your location. Search for other locations and join"
+                    android:textStyle="bold"
+                    android:textSize="10dp"
+                    android:layout_marginLeft="40dp"
+                    android:visibility="invisible"/>
+
+                <!--Fav Location View -->
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/vTripsNearMeRecycler"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/vTripsNearMeTitle"
+                   />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/vTripFavLocTitle"
+                    android:text="Trips Near Me"
+                    android:textAlignment="viewStart"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginBottom="5dp"
+                    android:textStyle="bold"
+                    android:visibility="gone"
+                    android:layout_below="@+id/vTripsNearMeRecycler"/>
+
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/vMyFavLocRecycler"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/vTripFavLocTitle" />
+
+                <!-- ALL TRIPS -->
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/vAllTripTitle"
+                    android:text="All Trips"
+                    android:textAlignment="viewStart"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="5dp"
+                    android:textStyle="bold"
+                    android:visibility="gone"
+                    android:layout_below="@+id/vMyFavLocRecycler"/>
+
+
+                <androidx.recyclerview.widget.RecyclerView
+
+                    android:id="@+id/vAllTripRecycler"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/vAllTripTitle" />
+
+
+
+
+            </RelativeLayout>
+
+
+
+
+
+    </androidx.core.widget.NestedScrollView>
+</androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+    <!-- /// For Shimmer PlaceHolder -->
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:layout_marginRight="4dp"
+        android:layout_marginLeft="4dp"
+
+        android:layout_below="@+id/sv">
+        <com.facebook.shimmer.ShimmerFrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone"
+            android:id="@+id/shimmer_view_container">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_gravity="center">
+                <include
+                    layout="@layout/shimmer_imgslider_view"/>
+                <include
+                    layout="@layout/shimmer_view"/>
+                <include
+                    layout="@layout/shimmer_view"/>
+                <include
+                    layout="@layout/shimmer_view"/>
+                <include
+                    layout="@layout/shimmer_view"/>
+                <include
+                    layout="@layout/shimmer_view"/>
+                <include
+                    layout="@layout/shimmer_view"/>
+                <include
+                    layout="@layout/shimmer_view"/>
+
+            </LinearLayout>
+
+        </com.facebook.shimmer.ShimmerFrameLayout>
+    </RelativeLayout>
+
+
+
+</RelativeLayout>

@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="80dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="horizontal"
+    android:paddingBottom="10dp"
+    android:id="@+id/trip_ll"
+    app:cardCornerRadius="0dp">
+    <com.facebook.shimmer.ShimmerFrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.facebook.shimmer.ShimmerFrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/shimmerLayout">
+
+            </com.facebook.shimmer.ShimmerFrameLayout>
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_margin="4dp"
+                android:id="@+id/scooterIcon"
+                android:background="@color/grey_500"
+                android:layout_alignBottom="@+id/vCityFrom"
+
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/vTripName"
+                android:layout_marginRight="4dp"
+                android:layout_marginTop="10dp"
+                android:paddingBottom="1dp"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/shimmer_bg"
+                android:layout_toRightOf="@+id/scooterIcon"
+                android:textSize="17dp"
+                android:textColor="@color/black"/>
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/shimmer_bg"
+                android:layout_alignBottom="@+id/moterBike"
+                android:id="@+id/vCityFrom"
+                android:textSize="8dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="8dp"
+                android:textAlignment="center"
+                android:layout_below="@+id/vTripName"
+                android:layout_toRightOf="@+id/scooterIcon"/>
+
+            <ImageView
+                android:layout_width="120dp"
+                android:layout_height="32dp"
+                android:id="@+id/moterBike"
+
+                android:layout_below="@+id/vTripName"
+                android:layout_marginLeft="138dp"
+                />
+
+            <TextView
+                android:layout_width="85dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/vCityTo"
+                android:textSize="8dp"
+                android:textAlignment="center"
+                android:layout_marginLeft="130dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/shimmer_bg"
+                android:layout_toRightOf="@+id/vCityFrom"
+                android:layout_below="@+id/vTripName"
+                android:layout_alignBottom="@+id/moterBike"
+               />
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="5dp"
+                android:layout_marginLeft="40dp"
+                android:layout_alignParentRight="true"
+                android:layout_above="@id/vCityTo"
+                >
+
+                <TextView
+                    android:id="@+id/vDistance"
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/vTitle"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginTop="3dp"
+
+                    android:layout_marginRight="12dp"
+                    android:layout_toRightOf="@+id/vCityTo"
+                    android:background="@drawable/shimmer_bg"
+                    android:gravity="center"
+                    android:textColor="@color/white"
+                    android:textAlignment="center"
+                    android:textSize="15dp" />
+
+            </LinearLayout>
+
+
+        </RelativeLayout>
+    </com.facebook.shimmer.ShimmerFrameLayout>
+
+
+
+</androidx.cardview.widget.CardView>

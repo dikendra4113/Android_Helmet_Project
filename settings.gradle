@@ -1,0 +1,3 @@
+include ':app',':androidutils'
+project(":androidutils").projectDir = new File('androidutils/app')
+rootProject.name = "Android Tranning"
